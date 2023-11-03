@@ -14,4 +14,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "News KMP"
-include(":app")
+include(
+  ":android",
+  ":common"
+)
