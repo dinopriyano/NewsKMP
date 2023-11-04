@@ -15,7 +15,7 @@ import com.dino.newskmp.app.common.ui.theme.NewsKMPTheme
 @Composable fun NewsApp() {
   NewsKMPTheme { // A surface container using the 'background' color from the theme
     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-      Greeting("Android")
+      Greeting(getPlatformName())
     }
   }
 }

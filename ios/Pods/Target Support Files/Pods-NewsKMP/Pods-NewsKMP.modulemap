@@ -1,0 +1,6 @@
+framework module Pods_NewsKMP {
+  umbrella header "Pods-NewsKMP-umbrella.h"
+
+  export *
+  module * { export * }
+}

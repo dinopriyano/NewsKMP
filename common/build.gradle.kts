@@ -3,6 +3,7 @@ plugins {
   alias(libs.plugins.android.library)
   alias(libs.plugins.kotlin.multiplatform)
   alias(libs.plugins.compose.multiplatform)
+  alias(libs.plugins.kotlin.native.cocoapods)
 }
 
 kotlin {
@@ -17,9 +18,21 @@ kotlin {
   jvm("desktop") {
     jvmToolchain(17)
   }
-//  iosX64()
-//  iosArm64()
-//  iosSimulatorArm64()
+  iosX64()
+  iosArm64()
+  iosSimulatorArm64()
+
+  cocoapods {
+    summary = "Common"
+    homepage = "https://github.com/dinopriyano/NewsKMP"
+    version = "1.0"
+    ios.deploymentTarget = "14.1"
+    podfile = project.file("../ios/Podfile")
+    framework {
+      baseName = "Common"
+      isStatic = true
+    }
+  }
 
   // Platform-specific dependencies
   sourceSets {
@@ -39,6 +52,19 @@ kotlin {
     val desktopMain by getting {
       dependencies {
         // Desktop specific dependencies
+      }
+    }
+
+    val iosX64Main by getting
+    val iosArm64Main by getting
+    val iosSimulatorArm64Main by getting
+    val iosMain by creating {
+      dependsOn(commonMain)
+      iosX64Main.dependsOn(this)
+      iosArm64Main.dependsOn(this)
+      iosSimulatorArm64Main.dependsOn(this)
+      dependencies {
+        // iOS specific dependencies
       }
     }
   }
