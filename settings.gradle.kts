@@ -16,5 +16,6 @@ dependencyResolutionManagement {
 rootProject.name = "News KMP"
 include(
   ":android",
-  ":common"
+  ":common",
+  ":desktop"
 )
