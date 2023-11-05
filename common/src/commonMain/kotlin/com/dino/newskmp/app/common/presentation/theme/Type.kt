@@ -7,27 +7,28 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.dino.newskmp.app.common.getFont
+import com.dino.newskmp.app.SharedRes
+import dev.icerock.moko.resources.compose.asFont
 
 @Composable
 fun getTypography(): Typography {
   val nexaRegular = FontFamily(
-    getFont("Nexa","nexa_regular", FontWeight.Normal, FontStyle.Normal)
+    SharedRes.fonts.nexa_regular.nexa_regular.asFont(FontWeight.Normal, FontStyle.Normal)!!
   )
   val nexaExtraLight = FontFamily(
-    getFont("Nexa", "nexa_extra_light", FontWeight.ExtraLight, FontStyle.Normal)
+    SharedRes.fonts.nexa_extra_light.nexa_extra_light.asFont(FontWeight.ExtraLight, FontStyle.Normal)!!
   )
   val nexaHeavy = FontFamily(
-    getFont("Nexa", "nexa_heavy", FontWeight.Bold, FontStyle.Normal)
+    SharedRes.fonts.nexa_heavy.nexa_heavy.asFont(FontWeight.Bold, FontStyle.Normal)!!
   )
   val outfitRegular = FontFamily(
-    getFont("Outfit", "outfit_regular", FontWeight.Normal, FontStyle.Normal)
+    SharedRes.fonts.outfit_regular.outfit_regular.asFont(FontWeight.Normal, FontStyle.Normal)!!
   )
   val outfitMedium = FontFamily(
-    getFont("Outfit", "outfit_medium", FontWeight.Medium, FontStyle.Normal)
+    SharedRes.fonts.outfit_medium.outfit_medium.asFont(FontWeight.Medium, FontStyle.Normal)!!
   )
   val outfitBold = FontFamily(
-    getFont("Outfit", "outfit_bold", FontWeight.Bold, FontStyle.Normal)
+    SharedRes.fonts.outfit_bold.outfit_bold.asFont(FontWeight.Bold, FontStyle.Normal)!!
   )
 
   return Typography(
@@ -49,7 +50,7 @@ fun getTypography(): Typography {
     ),
     titleLarge = TextStyle(
       fontFamily = nexaHeavy,
-      fontSize = 32.sp
+      fontSize = 26.sp
     )
   )
 }

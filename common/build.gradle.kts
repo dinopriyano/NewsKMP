@@ -4,6 +4,7 @@ plugins {
   alias(libs.plugins.kotlin.multiplatform)
   alias(libs.plugins.compose.multiplatform)
   alias(libs.plugins.kotlin.native.cocoapods)
+  alias(libs.plugins.moko.resources)
 }
 
 kotlin {
@@ -41,23 +42,32 @@ kotlin {
       dependencies {
         implementation(compose.material)
         implementation(compose.material3)
-        implementation(compose.runtime)
-        implementation(compose.foundation)
+        api(compose.runtime)
+        api(compose.foundation)
+        implementation(compose.materialIconsExtended)
 
         @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
         implementation(compose.components.resources)
+        implementation(libs.moko.resources)
+        implementation(libs.moko.resources.compose)
+
+        implementation(libs.bundles.voyager.navigaton)
+        implementation(libs.bundles.koin)
       }
     }
 
     val androidMain by getting {
+      dependsOn(commonMain)
       dependencies {
         // Android specific dependencies
+        implementation(libs.koin.compose)
       }
     }
 
     val desktopMain by getting {
       dependencies {
         // Desktop specific dependencies
+        implementation(libs.koin.compose)
       }
     }
 
@@ -79,8 +89,10 @@ kotlin {
 android {
   namespace = "com.dino.newskmp.app.common"
   compileSdk = 34
-  sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-  sourceSets["main"].res.srcDirs("src/androidMain/res", "src/commonMain/resources")
+
+  sourceSets["main"].manifest.srcFile("src/main/AndroidManifest.xml")
+  sourceSets["main"].res.srcDirs("src/main/res")
+  sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
   defaultConfig {
     minSdk = 24
@@ -90,4 +102,9 @@ android {
       targetCompatibility = JavaVersion.VERSION_1_8
     }
   }
+}
+
+multiplatformResources {
+  multiplatformResourcesPackage = "com.dino.newskmp.app"
+  multiplatformResourcesClassName = "SharedRes"
 }

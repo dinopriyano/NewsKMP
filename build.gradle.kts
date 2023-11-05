@@ -7,5 +7,6 @@ plugins {
   alias(libs.plugins.kotlin.multiplatform) apply false
   alias(libs.plugins.compose.multiplatform) apply false
   alias(libs.plugins.kotlin.native.cocoapods) apply false
+  alias(libs.plugins.moko.resources) apply false
 }
 true // Needed to make the Suppress annotation work for the plugins block

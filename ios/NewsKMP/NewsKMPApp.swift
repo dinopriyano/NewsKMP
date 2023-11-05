@@ -10,6 +10,11 @@ import Common
 
 @main
 struct NewsKMPApp: App {
+    
+    init() {
+        KoinKt.doInitKoin(baseUrl: "test")
+    }
+    
     var body: some Scene {
         WindowGroup {
             ComposeView()

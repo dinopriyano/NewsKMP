@@ -13,11 +13,18 @@ kotlin {
   sourceSets {
     val jvmMain by getting {
       dependencies {
-        implementation(project("::common"))
+        implementation(project(":common"))
         implementation(compose.desktop.common)
         implementation(compose.desktop.currentOs)
+        implementation(libs.koin.compose)
+      }
+      configurations.all {
+        // some dependencies contains it, this causes an exception to initialize the Main dispatcher in desktop for image loader
+        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-android")
       }
     }
+
+    val jvmTest by getting
   }
 }
 

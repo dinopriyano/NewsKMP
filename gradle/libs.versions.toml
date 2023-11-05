@@ -1,11 +1,31 @@
 [versions]
 agp = "8.1.2"
-kotlin = "1.8.20"
-compose = "1.4.3"
+kotlin = "1.8.22"
+compose = "1.5.0"
 activity-compose = "1.8.0"
+voyager = "1.0.0-rc06"
+koin-version = "3.4.2"
+koin-compose-version = "3.4.2"
+koin-compose-multiplatform = "1.0.3"
+moko-resources = "0.23.0"
 
 [libraries]
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+
+# Voyager navigation
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
+voyager-tabNavigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "voyager" }
+voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
+voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyager" }
+
+# Koin
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin-version" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin-compose-version" }
+koin-compose-multiplatform = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose-multiplatform" }
+
+# Moko resource
+moko-resources = { module = "dev.icerock.moko:resources", version.ref = "moko-resources" }
+moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -14,6 +34,9 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose" }
 kotlin-native-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+moko-resources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko-resources" }
 
 [bundles]
+voyager-navigaton = ["voyager-navigator", "voyager-tabNavigator", "voyager-transitions", "voyager-koin"]
+koin = ["koin-core", "koin-compose-multiplatform"]
 

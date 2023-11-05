@@ -1,2 +1,8 @@
 R_DEF: Internal format may change without notice
 local
+font nexa_extra_light
+font nexa_heavy
+font nexa_regular
+font outfit_bold
+font outfit_medium
+font outfit_regular

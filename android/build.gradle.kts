@@ -3,6 +3,7 @@ plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.kotlin.android)
   alias(libs.plugins.compose.multiplatform)
+  alias(libs.plugins.moko.resources)
 }
 
 android {
@@ -55,4 +56,7 @@ dependencies {
 
   // Compose multiplatform libs
   implementation(compose.material3)
+
+  // Koin
+  implementation(libs.koin.compose)
 }

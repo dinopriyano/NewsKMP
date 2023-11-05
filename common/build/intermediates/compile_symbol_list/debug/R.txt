@@ -1,0 +1,6 @@
+int font nexa_extra_light 0x0
+int font nexa_heavy 0x0
+int font nexa_regular 0x0
+int font outfit_bold 0x0
+int font outfit_medium 0x0
+int font outfit_regular 0x0

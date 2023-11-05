@@ -14,7 +14,7 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "News KMP"
+rootProject.name = "News-KMP"
 include(
   ":android",
   ":common",
