@@ -6,7 +6,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.dino.newskmp.app.common.ui.theme.NewsKMPTheme
+import com.dino.newskmp.app.common.presentation.theme.NewsKMPTheme
 
 /**
  * Created by dinopriyano on 04/11/23.

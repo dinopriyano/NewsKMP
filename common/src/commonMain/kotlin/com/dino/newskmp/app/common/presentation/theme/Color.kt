@@ -1,4 +1,4 @@
-package com.dino.newskmp.app.common.ui.theme
+package com.dino.newskmp.app.common.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

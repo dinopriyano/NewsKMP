@@ -32,6 +32,7 @@ kotlin {
       baseName = "Common"
       isStatic = true
     }
+    extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
   }
 
   // Platform-specific dependencies
@@ -40,6 +41,11 @@ kotlin {
       dependencies {
         implementation(compose.material)
         implementation(compose.material3)
+        implementation(compose.runtime)
+        implementation(compose.foundation)
+
+        @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+        implementation(compose.components.resources)
       }
     }
 
@@ -73,6 +79,8 @@ kotlin {
 android {
   namespace = "com.dino.newskmp.app.common"
   compileSdk = 34
+  sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+  sourceSets["main"].res.srcDirs("src/androidMain/res", "src/commonMain/resources")
 
   defaultConfig {
     minSdk = 24

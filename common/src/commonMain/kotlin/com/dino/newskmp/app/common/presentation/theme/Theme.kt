@@ -1,4 +1,4 @@
-package com.dino.newskmp.app.common.ui.theme
+package com.dino.newskmp.app.common.presentation.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -34,6 +34,6 @@ private val LightColorScheme = lightColorScheme(
   }
 
   MaterialTheme(
-    colorScheme = colorScheme, typography = Typography, content = content
+    colorScheme = colorScheme, typography = getTypography(), content = content
   )
 }
