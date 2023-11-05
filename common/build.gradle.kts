@@ -30,7 +30,7 @@ kotlin {
     ios.deploymentTarget = "14.1"
     podfile = project.file("../ios/Podfile")
     framework {
-      baseName = "Common"
+      baseName = "common"
       isStatic = true
     }
     extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
@@ -42,14 +42,14 @@ kotlin {
       dependencies {
         implementation(compose.material)
         implementation(compose.material3)
-        api(compose.runtime)
-        api(compose.foundation)
+        implementation(compose.runtime)
+        implementation(compose.foundation)
         implementation(compose.materialIconsExtended)
 
         @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
         implementation(compose.components.resources)
-        implementation(libs.moko.resources)
-        implementation(libs.moko.resources.compose)
+        api(libs.moko.resources)
+        api(libs.moko.resources.compose)
 
         implementation(libs.bundles.voyager.navigaton)
         implementation(libs.bundles.koin)

@@ -6,14 +6,14 @@ Pod::Spec.new do |spec|
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = 'Common'
-    spec.vendored_frameworks      = 'build/cocoapods/framework/Common.framework'
+    spec.vendored_frameworks      = 'build/cocoapods/framework/common.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '14.1'
                 
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':common',
-        'PRODUCT_MODULE_NAME' => 'Common',
+        'PRODUCT_MODULE_NAME' => 'common',
     }
                 
     spec.script_phases = [

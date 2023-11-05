@@ -8,14 +8,14 @@
   "authors": "",
   "license": "",
   "summary": "Common",
-  "vendored_frameworks": "build/cocoapods/framework/Common.framework",
+  "vendored_frameworks": "build/cocoapods/framework/common.framework",
   "libraries": "c++",
   "platforms": {
     "ios": "14.1"
   },
   "pod_target_xcconfig": {
     "KOTLIN_PROJECT_PATH": ":common",
-    "PRODUCT_MODULE_NAME": "Common"
+    "PRODUCT_MODULE_NAME": "common"
   },
   "script_phases": [
     {

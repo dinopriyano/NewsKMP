@@ -4,7 +4,6 @@ import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.dino.newskmp.app.SharedRes
@@ -12,44 +11,43 @@ import dev.icerock.moko.resources.compose.asFont
 
 @Composable
 fun getTypography(): Typography {
-  val nexaRegular = FontFamily(
-    SharedRes.fonts.nexa_regular.nexa_regular.asFont(FontWeight.Normal, FontStyle.Normal)!!
+
+  val nexaFontFamily = FontFamily(
+    SharedRes.fonts.nexa_extra_light.nexa_extra_light.asFont(weight = FontWeight.ExtraLight)!!,
+    SharedRes.fonts.nexa_regular.nexa_regular.asFont(weight = FontWeight.Normal)!!,
+    SharedRes.fonts.nexa_heavy.nexa_heavy.asFont(weight = FontWeight.Bold)!!,
   )
-  val nexaExtraLight = FontFamily(
-    SharedRes.fonts.nexa_extra_light.nexa_extra_light.asFont(FontWeight.ExtraLight, FontStyle.Normal)!!
-  )
-  val nexaHeavy = FontFamily(
-    SharedRes.fonts.nexa_heavy.nexa_heavy.asFont(FontWeight.Bold, FontStyle.Normal)!!
-  )
-  val outfitRegular = FontFamily(
-    SharedRes.fonts.outfit_regular.outfit_regular.asFont(FontWeight.Normal, FontStyle.Normal)!!
-  )
-  val outfitMedium = FontFamily(
-    SharedRes.fonts.outfit_medium.outfit_medium.asFont(FontWeight.Medium, FontStyle.Normal)!!
-  )
-  val outfitBold = FontFamily(
-    SharedRes.fonts.outfit_bold.outfit_bold.asFont(FontWeight.Bold, FontStyle.Normal)!!
+
+  val outfitFontFamily = FontFamily(
+    SharedRes.fonts.outfit_regular.outfit_regular.asFont(weight = FontWeight.Normal)!!,
+    SharedRes.fonts.outfit_medium.outfit_medium.asFont(weight = FontWeight.Medium)!!,
+    SharedRes.fonts.outfit_bold.outfit_bold.asFont(weight = FontWeight.Bold)!!,
   )
 
   return Typography(
     bodySmall = TextStyle(
-      fontFamily = outfitRegular,
+      fontFamily = outfitFontFamily,
+      fontWeight = FontWeight.Normal,
       fontSize = 14.sp
     ),
     bodyLarge = TextStyle(
-      fontFamily = outfitRegular,
+      fontFamily = outfitFontFamily,
+      fontWeight = FontWeight.Normal,
       fontSize = 16.sp
     ),
     titleSmall = TextStyle(
-      fontFamily = nexaHeavy,
+      fontFamily = nexaFontFamily,
+      fontWeight = FontWeight.Bold,
       fontSize = 16.sp
     ),
     titleMedium = TextStyle(
-      fontFamily = nexaHeavy,
+      fontFamily = nexaFontFamily,
+      fontWeight = FontWeight.Bold,
       fontSize = 24.sp
     ),
     titleLarge = TextStyle(
-      fontFamily = nexaHeavy,
+      fontFamily = nexaFontFamily,
+      fontWeight = FontWeight.Bold,
       fontSize = 26.sp
     )
   )

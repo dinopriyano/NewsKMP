@@ -9,4 +9,14 @@ plugins {
   alias(libs.plugins.kotlin.native.cocoapods) apply false
   alias(libs.plugins.moko.resources) apply false
 }
+
+buildscript {
+  dependencies {
+    classpath(libs.moko.resources.generator)
+  }
+}
+
+tasks.register("clean", Delete::class) {
+  delete(rootProject.buildDir)
+}
 true // Needed to make the Suppress annotation work for the plugins block

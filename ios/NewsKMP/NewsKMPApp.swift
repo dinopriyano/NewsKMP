@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Common
+import common
 
 @main
 struct NewsKMPApp: App {
@@ -17,17 +17,7 @@ struct NewsKMPApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ComposeView()
+            ContentView()
         }
-    }
-}
-
-struct ComposeView: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> some UIViewController {
-        return MainKt.MainViewController()
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
     }
 }

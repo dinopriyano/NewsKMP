@@ -36,10 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10E2FB70B592D9C83567E992A0DFA133 /* common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = common.framework; path = build/cocoapods/framework/common.framework; sourceTree = "<group>"; };
 		19C550607D04D5B8AC67C673BFBF03C9 /* Pods-NewsKMP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NewsKMP.release.xcconfig"; sourceTree = "<group>"; };
 		34840E419F55389E0215A156983AC6C7 /* Pods-NewsKMP-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NewsKMP-umbrella.h"; sourceTree = "<group>"; };
 		3EF3B41FF9B54FC766E7465FEE569893 /* common.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = common.debug.xcconfig; sourceTree = "<group>"; };
-		403BE682E3DE9558457C8C398C5EA739 /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = build/cocoapods/framework/Common.framework; sourceTree = "<group>"; };
 		4C334A2ECFC5E16B906EA5CC79223A48 /* Pods-NewsKMP.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NewsKMP.modulemap"; sourceTree = "<group>"; };
 		6353B5E2F31BCC35FEF0614D631846DE /* Pods-NewsKMP-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NewsKMP-resources.sh"; sourceTree = "<group>"; };
 		651385C9007B8757071F8AFDD5853558 /* common.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = common.release.xcconfig; sourceTree = "<group>"; };
@@ -67,14 +67,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B6B57C1993CF5A9CB537284A34CF9C8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				403BE682E3DE9558457C8C398C5EA739 /* Common.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		38CD54B8544A55577EB468D7941C1813 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				746A2BE4FBEF376223F28D55A0FA2298 /* MR */,
-				0B6B57C1993CF5A9CB537284A34CF9C8 /* Frameworks */,
+				E99A7C2260C7D38E9A5EE049F2C91772 /* Frameworks */,
 				38CD54B8544A55577EB468D7941C1813 /* Pod */,
 				4A3D23FCC3B38AA941AF4B233576FBA4 /* Support Files */,
 			);
@@ -169,6 +161,14 @@
 			isa = PBXGroup;
 			children = (
 				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E99A7C2260C7D38E9A5EE049F2C91772 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10E2FB70B592D9C83567E992A0DFA133 /* common.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
