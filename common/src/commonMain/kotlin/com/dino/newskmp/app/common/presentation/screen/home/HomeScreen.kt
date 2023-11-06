@@ -3,6 +3,7 @@ package com.dino.newskmp.app.common.presentation.screen.home
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.TopAppBar
 import androidx.compose.material3.MaterialTheme
@@ -19,11 +20,14 @@ import org.koin.compose.koinInject
 
   Column(modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
     // Home header
-    TopAppBar {
+    TopAppBar(
+      modifier = Modifier.fillMaxWidth(),
+      backgroundColor = MaterialTheme.colorScheme.background
+    ) {
       Text(
         text = "NewsKMP",
         style = MaterialTheme.typography.titleLarge,
-        color = Color.White
+        color = MaterialTheme.colorScheme.onBackground
       )
     }
 

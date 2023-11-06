@@ -12,4 +12,6 @@ val Pink40 = Color(0xFF7D5260)
 
 // NewsKMP color
 val Dark = Color(0xFF111111)
+val SecondaryDark = Color(0xFF232323)
+val TertiaryDark = Color(0xFF393939)
 val Primary = Color(0xFFFFE8E5)
