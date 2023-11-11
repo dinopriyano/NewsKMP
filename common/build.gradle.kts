@@ -5,6 +5,7 @@ plugins {
   alias(libs.plugins.compose.multiplatform)
   alias(libs.plugins.kotlin.native.cocoapods)
   alias(libs.plugins.moko.resources)
+  alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -43,6 +44,7 @@ kotlin {
         implementation(compose.material)
         implementation(compose.material3)
         implementation(compose.runtime)
+        implementation(compose.ui)
         implementation(compose.foundation)
         implementation(compose.materialIconsExtended)
 
@@ -53,6 +55,7 @@ kotlin {
 
         implementation(libs.bundles.voyager.navigaton)
         implementation(libs.bundles.koin)
+        implementation(libs.bundles.networking)
       }
     }
 
@@ -61,6 +64,7 @@ kotlin {
       dependencies {
         // Android specific dependencies
         implementation(libs.koin.compose)
+        implementation(libs.ktor.client.android)
       }
     }
 
@@ -68,6 +72,7 @@ kotlin {
       dependencies {
         // Desktop specific dependencies
         implementation(libs.koin.compose)
+        implementation(libs.ktor.client.cio)
       }
     }
 
@@ -81,6 +86,9 @@ kotlin {
       iosSimulatorArm64Main.dependsOn(this)
       dependencies {
         // iOS specific dependencies
+        implementation(libs.moko.resources)
+        implementation(libs.moko.graphics)
+        implementation(libs.ktor.client.darwin)
       }
     }
   }

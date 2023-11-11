@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.dino.newskmp.app.SharedRes
+import dev.icerock.moko.resources.compose.stringResource
 import org.koin.compose.koinInject
 
 /**
@@ -25,7 +27,7 @@ import org.koin.compose.koinInject
       backgroundColor = MaterialTheme.colorScheme.background
     ) {
       Text(
-        text = "NewsKMP",
+        text = stringResource(SharedRes.strings.app_name),
         style = MaterialTheme.typography.titleLarge,
         color = MaterialTheme.colorScheme.onBackground
       )
