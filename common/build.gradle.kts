@@ -56,6 +56,7 @@ kotlin {
         implementation(libs.bundles.voyager.navigaton)
         implementation(libs.bundles.koin)
         implementation(libs.bundles.networking)
+        implementation(libs.kotlinx.datetime)
       }
     }
 

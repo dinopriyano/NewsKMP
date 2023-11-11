@@ -1,5 +1,5 @@
 import androidx.compose.ui.window.ComposeUIViewController
-import com.dino.newskmp.app.common.NewsApp
+import com.dino.newskmp.app.common.presentation.main.NewsApp
 
 /**
  * Created by dinopriyano on 04/11/23.

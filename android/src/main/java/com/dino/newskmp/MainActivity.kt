@@ -3,7 +3,7 @@ package com.dino.newskmp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.dino.newskmp.app.common.NewsApp
+import com.dino.newskmp.app.common.presentation.main.NewsApp
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {

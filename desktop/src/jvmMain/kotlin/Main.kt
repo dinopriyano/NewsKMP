@@ -1,6 +1,6 @@
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import com.dino.newskmp.app.common.NewsApp
+import com.dino.newskmp.app.common.presentation.main.NewsApp
 import com.dino.newskmp.app.common.domain.di.initKoin
 
 /**

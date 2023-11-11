@@ -1,6 +1,8 @@
 package com.dino.newskmp.app.common.domain.di
 
-import com.dino.newskmp.app.common.presentation.screen.home.HomeScreenViewModel
+import com.dino.newskmp.app.common.presentation.screen.favorite.FavoriteScreenModel
+import com.dino.newskmp.app.common.presentation.screen.home.HomeScreenModel
+import com.dino.newskmp.app.common.presentation.screen.search.SearchScreenModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.module
@@ -27,5 +29,7 @@ fun commonModule(
 ) = getScreenModule()
 
 fun getScreenModule() = module {
-  single { HomeScreenViewModel() }
+  single { HomeScreenModel() }
+  single { SearchScreenModel() }
+  single { FavoriteScreenModel() }
 }

@@ -1,4 +1,4 @@
-package com.dino.newskmp.app.common
+package com.dino.newskmp.app.common.presentation.main
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -21,17 +21,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
-import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabNavigator
-import com.dino.newskmp.app.SharedRes
 import com.dino.newskmp.app.common.platform.SystemBarColor
 import com.dino.newskmp.app.common.presentation.component.RawrBottomNavigationItem
-import com.dino.newskmp.app.common.presentation.tabs.FavoriteTab
 import com.dino.newskmp.app.common.presentation.tabs.HomeTab
-import com.dino.newskmp.app.common.presentation.tabs.SearchTab
 import com.dino.newskmp.app.common.presentation.theme.NewsKMPTheme
 import dev.icerock.moko.resources.compose.painterResource
 
@@ -40,11 +35,6 @@ import dev.icerock.moko.resources.compose.painterResource
  */
 
 val itemSize = 56.dp
-val filledIconList = listOf(
-  SharedRes.images.home_filled,
-  SharedRes.images.search_filled,
-  SharedRes.images.bookmark_filled
-)
 
 @Composable fun NewsApp() {
   NewsKMPTheme {
@@ -52,8 +42,25 @@ val filledIconList = listOf(
       statusBarColor = MaterialTheme.colorScheme.background,
       navigationBarColor = MaterialTheme.colorScheme.background
     )
-    TabNavigator(HomeTab) {
-      Navigator(Application())
+    Application().Content()
+  }
+}
+
+
+
+@Composable fun BottomBar(tab: List<TabContainer>) {
+  Row(
+    Modifier
+      .padding(bottom = 24.dp)
+      .shadow(4.dp, RoundedCornerShape(CornerSize(50)))
+      .clip(RoundedCornerShape(CornerSize(50)))
+      .background(MaterialTheme.colorScheme.secondary)
+      .padding(5.dp)
+      .selectableGroup(),
+    horizontalArrangement = Arrangement.spacedBy(5.dp))
+  {
+    tab.forEach { tab ->
+      TabNavigationItem(tab)
     }
   }
 }
@@ -62,44 +69,35 @@ class Application: Screen {
 
   @Composable
   override fun Content() {
-    Box(
-      modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background),
-      contentAlignment = Alignment.BottomCenter
-    ) {
-      CurrentTab()
-      Row(
-        Modifier
-          .padding(bottom = 24.dp)
-          .shadow(4.dp, RoundedCornerShape(CornerSize(50)))
-          .clip(RoundedCornerShape(CornerSize(50)))
-          .background(MaterialTheme.colorScheme.secondary)
-          .padding(5.dp)
-          .selectableGroup(),
-        horizontalArrangement = Arrangement.spacedBy(5.dp))
-      {
-        TabNavigationItem(HomeTab)
-        TabNavigationItem(SearchTab)
-        TabNavigationItem(FavoriteTab)
+    val tabs = rememberTabs()
+
+    TabNavigator(HomeTab) {
+      Box(
+        modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background),
+        contentAlignment = Alignment.BottomCenter
+      ) {
+        CurrentTab()
+        BottomBar(tabs)
       }
     }
   }
 }
 
 @Composable
-private fun RowScope.TabNavigationItem(tab: Tab) {
+private fun RowScope.TabNavigationItem(tabContainer: TabContainer) {
   val tabNavigator = LocalTabNavigator.current
-  val isSelected = tabNavigator.current.key == tab.key
+  val isSelected = tabNavigator.current.key == tabContainer.tab.key
   val (iconColor, iconBackground, icon) = if (isSelected) {
     Triple(
-      MaterialTheme.colorScheme.background, MaterialTheme.colorScheme.onBackground, painterResource(
-        filledIconList[tab.options.index.toInt()]
-      )
+      MaterialTheme.colorScheme.background,
+      MaterialTheme.colorScheme.onBackground,
+      painterResource(tabContainer.selectedIcon)
     )
   } else {
     Triple(
       MaterialTheme.colorScheme.onBackground,
       MaterialTheme.colorScheme.tertiary,
-      tab.options.icon!!
+      painterResource(tabContainer.unSelectedIcon)
     )
   }
   RawrBottomNavigationItem(
@@ -107,6 +105,6 @@ private fun RowScope.TabNavigationItem(tab: Tab) {
     unselectedContentColor = MaterialTheme.colorScheme.onBackground,
     selectedContentColor = MaterialTheme.colorScheme.background,
     selected = isSelected,
-    onClick = { tabNavigator.current = tab },
-    icon = { Icon(painter = icon, contentDescription = tab.options.title, tint = iconColor) })
+    onClick = { tabNavigator.current = tabContainer.tab },
+    icon = { Icon(painter = icon, contentDescription = tabContainer.tab.options.title, tint = iconColor) })
 }

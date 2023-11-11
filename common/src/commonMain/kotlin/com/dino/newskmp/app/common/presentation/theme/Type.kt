@@ -35,6 +35,21 @@ fun getTypography(): Typography {
       fontWeight = FontWeight.Normal,
       fontSize = 16.sp
     ),
+    labelSmall = TextStyle(
+      fontFamily = outfitFontFamily,
+      fontWeight = FontWeight.Medium,
+      fontSize = 14.sp
+    ),
+    labelMedium = TextStyle(
+      fontFamily = outfitFontFamily,
+      fontWeight = FontWeight.Medium,
+      fontSize = 16.sp
+    ),
+    labelLarge = TextStyle(
+      fontFamily = outfitFontFamily,
+      fontWeight = FontWeight.Medium,
+      fontSize = 24.sp
+    ),
     titleSmall = TextStyle(
       fontFamily = nexaFontFamily,
       fontWeight = FontWeight.Bold,

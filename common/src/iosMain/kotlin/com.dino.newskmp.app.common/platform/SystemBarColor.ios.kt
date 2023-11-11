@@ -6,16 +6,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import com.dino.newskmp.app.common.utils.getDeviceOrientation
+import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.copy
-import kotlinx.cinterop.zeroValue
-import platform.CoreGraphics.CGRect
 import platform.CoreGraphics.CGRectMake
 import platform.UIKit.UIApplication
 import platform.UIKit.UIColor
-import platform.UIKit.UINavigationBar
 import platform.UIKit.UIView
 import platform.UIKit.UIWindow
-import platform.UIKit.statusBarManager
 
 /**
  * Created by dinopriyano on 11/11/23.
@@ -28,7 +25,7 @@ private fun Color.toUIColor(): UIColor = UIColor(
   alpha = this.alpha.toDouble(),
 )
 
-@Composable
+@OptIn(ExperimentalForeignApi::class) @Composable
 actual fun SystemBarColor(statusBarColor: Color, navigationBarColor: Color) {
   val safeFrameSize = remember { mutableStateOf(0.0) }
 
