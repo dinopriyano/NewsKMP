@@ -2,9 +2,16 @@ package com.dino.newskmp.app.common.utils
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.pager.PagerState
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import kotlin.math.absoluteValue
 
@@ -46,11 +53,16 @@ import kotlin.math.absoluteValue
   }.zIndex(1f - absPageOffset)
 }
 
-@OptIn(ExperimentalFoundationApi::class) fun calculatePageOffset(page: Int, pagerState: PagerState): Float {
-  val offset = pagerState.currentPageOffsetFraction
-  return if (pagerState.currentPage > page) {
-    offset - (pagerState.currentPage - page)
-  } else {
-    (page - pagerState.currentPage) - offset
+@Composable fun Modifier.drawCircleIndicator(
+  xOffset: Float,
+  indicatorSize: Dp = 56.dp,
+  indicatorColor: Color = MaterialTheme.colorScheme.onBackground
+): Modifier = then(
+  Modifier.drawBehind {
+    drawCircle(
+      color = indicatorColor,
+      center = Offset(xOffset, indicatorSize.toPx() / 2),
+      radius = indicatorSize.toPx() / 2
+    )
   }
-}
+)

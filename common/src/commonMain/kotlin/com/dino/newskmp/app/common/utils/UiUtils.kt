@@ -2,6 +2,8 @@ package com.dino.newskmp.app.common.utils
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Dp
 import com.dino.newskmp.app.SharedRes
 import com.dino.newskmp.app.common.platform.DateTime
 import com.dino.newskmp.app.common.presentation.theme.BluePastel
@@ -50,3 +52,6 @@ fun formatToTimeAgo(isoDate: String): String {
     else -> stringResource(SharedRes.strings.just_now_txt)
   }
 }
+
+@Composable
+fun Dp.toPx(): Float = with(LocalDensity.current) { toPx() }

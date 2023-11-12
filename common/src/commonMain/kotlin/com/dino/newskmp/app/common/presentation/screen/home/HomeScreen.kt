@@ -43,7 +43,7 @@ import com.dino.newskmp.app.common.presentation.base.BaseScreen
 import com.dino.newskmp.app.common.presentation.component.NewsShortcut
 import com.dino.newskmp.app.common.presentation.component.RawrChip
 import com.dino.newskmp.app.common.presentation.theme.IconPastel
-import com.dino.newskmp.app.common.presentation.theme.LowTransparent
+import com.dino.newskmp.app.common.presentation.theme.DarkTransparent
 import com.dino.newskmp.app.common.utils.carouselTransition
 import com.dino.newskmp.app.common.utils.getCardColor
 import dev.icerock.moko.resources.ImageResource
@@ -207,7 +207,7 @@ class HomeScreen: BaseScreen<HomeScreenModel, HomeScreenUiState, HomeScreenUiEff
   onClick: () -> Unit
 ) {
   IconButton(
-    modifier = modifier.clip(CircleShape).background(LowTransparent),
+    modifier = modifier.clip(CircleShape).background(DarkTransparent),
     onClick = onClick
   ) {
     Icon(
