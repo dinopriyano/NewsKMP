@@ -70,6 +70,7 @@ kotlin {
     }
 
     val desktopMain by getting {
+      dependsOn(commonMain)
       dependencies {
         // Desktop specific dependencies
         implementation(libs.koin.compose)
