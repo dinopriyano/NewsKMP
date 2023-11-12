@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <plural name="template_minute_ago">
+        <item quantity="one">menit lalu</item>
+        <item quantity="other">menit lalu</item>
+    </plural>
+    <plural name="template_hour_ago">
+        <item quantity="one">jam lalu</item>
+        <item quantity="other">jam lalu</item>
+    </plural>
+    <plural name="template_day_ago">
+        <item quantity="one">hari lalu</item>
+        <item quantity="other">hari lalu</item>
+    </plural>
+    <plural name="template_week_ago">
+        <item quantity="one">minggu lalu</item>
+        <item quantity="other">minggu lalu</item>
+    </plural>
+</resources>

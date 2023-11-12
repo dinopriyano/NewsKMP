@@ -3,9 +3,9 @@ package com.dino.newskmp.app.common.presentation.screen.home
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,8 +16,10 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.TopAppBar
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -31,15 +33,20 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.Navigator
 import com.dino.newskmp.app.SharedRes
 import com.dino.newskmp.app.common.data.DummyData
 import com.dino.newskmp.app.common.presentation.base.BaseScreen
+import com.dino.newskmp.app.common.presentation.component.NewsShortcut
 import com.dino.newskmp.app.common.presentation.component.RawrChip
+import com.dino.newskmp.app.common.presentation.theme.IconPastel
+import com.dino.newskmp.app.common.presentation.theme.LowTransparent
 import com.dino.newskmp.app.common.utils.carouselTransition
 import com.dino.newskmp.app.common.utils.getCardColor
+import dev.icerock.moko.resources.ImageResource
 import dev.icerock.moko.resources.compose.painterResource
 import dev.icerock.moko.resources.compose.stringResource
 
@@ -133,7 +140,7 @@ class HomeScreen: BaseScreen<HomeScreenModel, HomeScreenUiState, HomeScreenUiEff
 ) {
   val pagerState = rememberPagerState(
     pageCount = {
-      10
+      DummyData.newsList.size
     }
   )
   HorizontalPager(
@@ -141,22 +148,74 @@ class HomeScreen: BaseScreen<HomeScreenModel, HomeScreenUiState, HomeScreenUiEff
     modifier = modifier,
     contentPadding = PaddingValues(horizontal = 24.dp, vertical = 16.dp)
   ) { page ->
-    Card(
-      onClick = {  },
-      modifier = Modifier
-        .carouselTransition(
-          page,
-          pagerState
-        ),
-      shape = RoundedCornerShape(28.dp),
-      elevation = CardDefaults.cardElevation(16.dp)
-    ) {
-      Box(
+    val news = DummyData.newsList.getOrNull(page)
+    news?.let { news ->
+      Card(
+        onClick = {  },
         modifier = Modifier
-          .fillMaxSize()
-          .background(getCardColor(page))
-      )
+          .carouselTransition(
+            page,
+            pagerState
+          ),
+        shape = RoundedCornerShape(28.dp),
+        elevation = CardDefaults.cardElevation(16.dp),
+        colors = CardDefaults.cardColors(
+          containerColor = getCardColor(page)
+        )
+      ) {
+        Column(
+          modifier = Modifier.fillMaxSize(),
+          horizontalAlignment = Alignment.End
+        ) {
+          NewsShortcut(
+            news = news,
+            modifier = Modifier.fillMaxWidth().weight(1f).padding(24.dp)
+          )
+          Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            modifier = Modifier.padding(16.dp)
+          ) {
+            ActionImage(
+              imageResource = SharedRes.images.ic_like_outlined,
+              modifier = Modifier
+            ) {
+
+            }
+            ActionImage(
+              imageResource = SharedRes.images.bookmark_outlined,
+              modifier = Modifier
+            ) {
+
+            }
+            ActionImage(
+              imageResource = SharedRes.images.ic_share_outlined,
+              modifier = Modifier
+            ) {
+
+            }
+          }
+        }
+      }
     }
+  }
+}
+
+@Composable fun ActionImage(
+  imageResource: ImageResource,
+  modifier: Modifier,
+  onClick: () -> Unit
+) {
+  IconButton(
+    modifier = modifier.clip(CircleShape).background(LowTransparent),
+    onClick = onClick
+  ) {
+    Icon(
+      painterResource(imageResource),
+      contentDescription = null,
+      modifier = Modifier.padding(5.dp),
+      tint = IconPastel
+    )
   }
 }
 

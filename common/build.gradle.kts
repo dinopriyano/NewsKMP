@@ -57,6 +57,8 @@ kotlin {
         implementation(libs.bundles.koin)
         implementation(libs.bundles.networking)
         implementation(libs.kotlinx.datetime)
+
+        api(libs.image.loader)
       }
     }
 

@@ -1,13 +1,13 @@
 package com.dino.newskmp.app.common.platform
 
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import platform.Foundation.NSLocale
-import platform.Foundation.preferredLanguages
 import com.dino.newskmp.app.common.common.config.Platform
 import io.ktor.client.engine.darwin.Darwin
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import org.koin.core.module.Module
 import org.koin.dsl.module
+import platform.Foundation.NSLocale
+import platform.Foundation.preferredLanguages
 
 /**
  * Created by dinopriyano on 04/11/23.

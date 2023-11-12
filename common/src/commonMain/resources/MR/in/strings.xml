@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
     <string name="title">Berita</string>
+    <string name="updated_txt">Diperbarui</string>
+    <string name="just_now_txt">baru saja</string>
+    <string name="published_by_txt">Diterbitkan oleh</string>
+    <string name="follow_txt">Ikuti</string>
 </resources>
